@@ -46,6 +46,9 @@ def monthly_challenge_by_number(request, month):
 def monthly_challenge(request, month):
     try:
         challenge_text = monthly_challenges[month]
-        return HttpResponse(f"<h1>{challenge_text}</h1>")
+
+        # best practice to repeat the app's name in the templates name folder to make django not merge the templates with the same name
+        return render(request, 'challenges/challenge.html', {'month_name': month, 'month_challenge': challenge_text })
+
     except:
         return HttpResponseNotFound("<h1>this month is not supported</h1>")
