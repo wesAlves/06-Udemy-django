@@ -19,15 +19,11 @@ monthly_challenges = {
 
 
 def index(request):
-    list_items = ""
     months = list(monthly_challenges.keys())
 
-    for month in months:
-        capitalized_month = month.capitalize()
-        month_path = reverse('month-challenge', args=[month])
-        list_items += f'<li><a href="{month_path}">{capitalized_month}</a></li>'
-
-    return HttpResponse(f"<ul>{list_items}</ul>")
+    return render(request, 'challenges/index.html', {
+        "months": months
+    })
 
 
 def monthly_challenge_by_number(request, month):
@@ -48,7 +44,7 @@ def monthly_challenge(request, month):
         challenge_text = monthly_challenges[month]
 
         # best practice to repeat the app's name in the templates name folder to make django not merge the templates with the same name
-        return render(request, 'challenges/challenge.html', {'month_name': month, 'month_challenge': challenge_text })
+        return render(request, 'challenges/challenge.html', {'month_name': month, 'month_challenge': challenge_text})
 
     except:
         return HttpResponseNotFound("<h1>this month is not supported</h1>")
