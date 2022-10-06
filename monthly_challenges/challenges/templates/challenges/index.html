@@ -12,6 +12,12 @@
     {% for month in months %}
     <li><a href='{% url  'month-challenge' month %}'>{{ month|title }}</a></li>
     {% endfor %}
+
+    {% if text is not None %}
+    <h2>{{ text }}</h2>
+    {% else %}
+    <p>There is no challenge for this month yet</p>
+    {% endif %}
 </ul>
 </body>
 </html>
