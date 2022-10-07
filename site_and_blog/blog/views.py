@@ -12,3 +12,9 @@ class Index (View):
     
     def get(self, request):
         return HttpResponse('index')
+
+
+class Posts (View):
+
+    def get(self, request, slug=0):
+        return HttpResponse(f'{slug}')
