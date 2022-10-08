@@ -1,48 +1,37 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Blog
 {% endblock  %}
 
-{% block cssfiles %}{% endblock  %}
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock  %}
 
 
 {% block content %}
-<header id='main-navigation'>
-    <h1><a href="">My blog</a></h1>
-    
-    <nav>
-        <a href="">All host</a>
-    </nav>
-</header>
 
 <section id='welcome'>
     <header>
-        <img src="" alt="The author of this blog">
+        <img src="{% static 'blog/images/max.png' %}" alt="The author of this blog">
         <h2>Wes's blog</h2>
         <p>Hello to my blog</p>
     </header>
 </section>
 
-<section>
+<section id='latest-posts'>
     <h2>My latest posts</h2>
 
     <ul>
-        <li>
-            <article class="post">
-                <a href="">
-                    <img src="" alt="moutain">
-                    <div class='post__content'>
-                        <h3>Mountain hiking</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nisi cupiditate, numquam accusantium laborum delectus rerum earum quas eius assumenda dicta voluptas tempore ea itaque ab, molestiae officia? Magni, excepturi!</p>
-                    </div>
-                </a>
-            </article>
-        </li>
+        {% include 'blog/includes/post.html' %}
+        {% include 'blog/includes/post.html' %}
+        {% include 'blog/includes/post.html' %}
     </ul>
 </section>
 
-<section>
+<section id='about'>
     <h2>What I do</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita culpa sequi quibusdam laborum obcaecati nam ipsam quaerat minima, rerum vel doloremque deserunt velit omnis non optio enim nihil distinctio voluptate!</p>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam est iste, explicabo nemo repudiandae unde cum quaerat esse ipsum nisi facere architecto dignissimos tempore laborum. Saepe possimus qui distinctio quas.</p>

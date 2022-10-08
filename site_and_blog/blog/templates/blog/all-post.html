@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+All my post
+{% endblock  %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+
+<section id='welcome'>
+    <header>
+        <img src="{% static 'blog/images/max.png' %}" alt="The author of this blog">
+        <h2>My coollected of posts</h2>
+
+        <ul>
+            <li>
+                {% include 'blog/includes/post.html' %}
+            </li>
+        </ul>
+    </header>
+</section>
+
+{% endblock  %}
