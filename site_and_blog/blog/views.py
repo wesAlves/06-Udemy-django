@@ -11,10 +11,17 @@ from django.views import View
 class Index (View):
     
     def get(self, request):
-        return HttpResponse('index')
+        return render(request, "blog/index.html")
 
 
 class Posts (View):
 
-    def get(self, request, slug=0):
-        return render(request, "blog/index.html")
+    def get(self, request):
+        return HttpResponse('index')
+
+
+class PostsDetails (View):
+    pass
+
+    # def get(self, request, slug):
+    #     return HttpResponse('index')
