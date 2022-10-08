@@ -25,9 +25,9 @@ Blog
     <h2>My latest posts</h2>
 
     <ul>
-        {% include 'blog/includes/post.html' %}
-        {% include 'blog/includes/post.html' %}
-        {% include 'blog/includes/post.html' %}
+        {% for post in posts %}
+            {% include 'blog/includes/post.html' %}
+        {% endfor %}
     </ul>
 </section>
 
