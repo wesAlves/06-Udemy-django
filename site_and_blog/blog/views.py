@@ -17,4 +17,4 @@ class Index (View):
 class Posts (View):
 
     def get(self, request, slug=0):
-        return HttpResponse(f'{slug}')
+        return render(request, "blog/index.html")
