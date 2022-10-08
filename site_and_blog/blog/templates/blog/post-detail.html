@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+This is the post title
+{% endblock  %}
+
+{% block cssfiles %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock  %}
+
+
+{% block content %}
+
+<section id='summary'>
+    <h2>Post title</h2>
+    <article>
+        <img src="{% static 'blog/images/mountain.jpg' %}" alt="Post title">
+        <address>By Max</address>
+        <div>Last updated on <time>July 10th</time></div>
+    </article>
+</section>
+
+<main>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur saepe repudiandae officiis delectus illum. Dignissimos vel praesentium, voluptas officia laborum minus fugiat dolore iure recusandae iste, in maxime, molestias natus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur saepe repudiandae officiis delectus illum. Dignissimos vel praesentium, voluptas officia laborum minus fugiat dolore iure recusandae iste, in maxime, molestias natus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur saepe repudiandae officiis delectus illum. Dignissimos vel praesentium, voluptas officia laborum minus fugiat dolore iure recusandae iste, in maxime, molestias natus.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur saepe repudiandae officiis delectus illum. Dignissimos vel praesentium, voluptas officia laborum minus fugiat dolore iure recusandae iste, in maxime, molestias natus.</p>
+</main>
+
+{% endblock  %}

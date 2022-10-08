@@ -8,20 +8,13 @@ from django.views import View
 # TODO: /post  load page with list all blog posts
 # TODO: /post/<slug> load individual blog post page with shows full  blog post
 
-class Index (View):
-    
-    def get(self, request):
-        return render(request, "blog/index.html")
+def Index (request):
+    return render(request, "blog/index.html")
 
 
-class Posts (View):
-
-    def get(self, request):
-        return render(request, "blog/all-post.html")
+def Posts (request):
+    return render(request, "blog/all-post.html")
 
 
-class PostsDetails (View):
-    pass
-
-    # def get(self, request, slug):
-    #     return HttpResponse('index')
+def Posts_details (request, slug):
+    return render(request, "blog/post-detail.html" )
