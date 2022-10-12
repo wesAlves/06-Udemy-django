@@ -13,4 +13,4 @@ class Book(models.Model):
     is_bestselling = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.title} ({self.rating})" #function to format string return from model
+        return f"{self.title} ({self.rating}), authours: {self.authors}" #function to format string return from model
