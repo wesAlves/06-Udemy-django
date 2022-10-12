@@ -9,6 +9,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Book(models.Model):
     title = models.CharField(max_length=100)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    authors = models.CharField(max_lenght=100)
+    is_bestselling = models.BooleanField()
 
     def __str__(self):
         return f"{self.title} ({self.rating})" #function to format string return from model
