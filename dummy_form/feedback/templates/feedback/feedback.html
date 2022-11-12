@@ -13,12 +13,16 @@
             <label for="username">Name</label>
             <input id="username" name="username" type="text">
         </div>
-
+        
         <div>
             <label for="password">Password</label>
             <input id="password" name="password" type="password">
         </div>
-
+        
+        {% if has_error %}
+        <p>This for is invalid please enter a valid username and password</p>
+        {% endif %}
+        
         <button>Send</button>
     </form>
 </body>
