@@ -9,7 +9,7 @@ class ReviewForm(forms.Form):
             'required': 'you name must be filled',
             "max_length": "The maximu length for name is 100 characters"
         })
-    reivew_text = forms.CharField(label="Your feedback",
+    review_text = forms.CharField(label="Your feedback",
                                   widget=forms.Textarea,
                                   max_length=500)
     rating = forms.IntegerField(max_value=5)
