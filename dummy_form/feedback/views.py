@@ -24,10 +24,5 @@ class ReviewView(View):
             return HttpResponseRedirect("/reviews/thank-you")
 
 
-def thank_you(request):
-    return render(request, "feedback/thank_you.html")
-
-
 class ThankyouView(TemplateView):
-
     template_name = "feedback/thank_you.html"
