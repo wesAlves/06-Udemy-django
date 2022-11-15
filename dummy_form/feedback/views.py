@@ -26,3 +26,9 @@ class ReviewView(View):
 
 class ThankyouView(TemplateView):
     template_name = "feedback/thank_you.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['message'] = "this is works"
+
+        return context
