@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, FormView
 
 from .forms import ReviewForm
 from .models import Review
@@ -9,19 +9,14 @@ from .models import Review
 # Create your views here.
 
 
-class ReviewView(View):
+class ReviewView(FormView):
+    form_class = ReviewForm
+    template_name = 'feedback/feedback.html'
+    success_url = "/reviews/thank-you"
 
-    def get(self, request):
-        form = ReviewForm()
-
-        return render(request, 'feedback/feedback.html', {"form": form})
-
-    def post(self, request):
-        form = ReviewForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/reviews/thank-you")
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 
 
 class ThankyouView(TemplateView):
@@ -37,10 +32,9 @@ class ThankyouView(TemplateView):
 class ReviewListView(ListView):
     template_name = "feedback/review_list.html"
     model = Review
-    context_object_name = 'reivews'
+    context_object_name = 'reviews'
 
 
 class ReviewDetailView(DetailView):
     template_name = "feedback/review_detail.html"
     model = Review
-    # context_object_name = 'review' #we don't need that if the name is lowercase model's name, but we could use if want
