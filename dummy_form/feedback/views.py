@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .forms import ReviewForm
 from .models import Review
@@ -40,13 +40,7 @@ class ReviewListView(ListView):
     context_object_name = 'reivews'
 
 
-class ReviewDetailView(TemplateView):
+class ReviewDetailView(DetailView):
     template_name = "feedback/review_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        review = Review.objects.get(pk=kwargs['id'])
-
-        context['review'] = review
-
-        return context
+    model = Review
+    # context_object_name = 'review' #we don't need that if the name is lowercase model's name, but we could use if want
