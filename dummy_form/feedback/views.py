@@ -50,7 +50,8 @@ class ReviewDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        review = Review.objects.get(pk=kwargs['id'])
 
-        review = 
+        context['reivew'] = review
 
         return context
