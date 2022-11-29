@@ -45,4 +45,4 @@ class AddFavoriteView(View):
 
         request.session["favorite_review"] = fav_review
 
-        return HttpResponseRedirect("/reviews/" + review_id)
+        return HttpResponseRedirect(review_id)
