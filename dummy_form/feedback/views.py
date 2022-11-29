@@ -36,13 +36,22 @@ class ReviewDetailView(DetailView):
     template_name = "feedback/review_detail.html"
     model = Review
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        loaded_review = self.object
+        request = self.request
+        favorite_id = request.session["favorite_review"]
+        context['is_favorite'] = favorite_id == str(loaded_review.id)
+
+        return context
+
 
 class AddFavoriteView(View):
 
     def post(self, request):
-        review_id = request.POSTS['review_id']
-        fav_review = Review.objects.get(pk=review_id)
+        review_id = request.POST['review_id']
+        # fav_review = Review.objects.get(pk=review_id) #It is smarttest to store just simple data into data bases, so we decided to store just the review id
 
-        request.session["favorite_review"] = fav_review
+        request.session["favorite_review"] = review_id
 
-        return HttpResponseRedirect(review_id)
+        return HttpResponseRedirect("")
