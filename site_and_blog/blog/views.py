@@ -21,8 +21,8 @@ def Posts(request):
 
 
 def Posts_details(request, slug):
-    identified_post = get_object_or_404(Post, slug == slug)
+    identified_post = get_object_or_404(Post, slug=slug)
     # identified_post = next(post for post in all_posts if post['slug'] == slug)
     return render(request,
                   "blog/post-detail.html",
-                  context={"post": identified_post})
+                  context={"post": "identified_post"})
