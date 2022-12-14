@@ -27,7 +27,6 @@ class Tag(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     excerpt = models.CharField(max_length=200)
-    image_name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=150,
                             null=False,
                             blank=True,
@@ -35,7 +34,7 @@ class Post(models.Model):
                             db_index=True)
     created_date = models.DateField(auto_now_add=True, blank=True)
     updated_date = models.DateField(auto_now=True, blank=True)
-    image_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="posts", null=True)
     content = models.TextField(validators=[MinLengthValidator(10)])
     author = models.ForeignKey(Author,
                                on_delete=models.SET_NULL,
